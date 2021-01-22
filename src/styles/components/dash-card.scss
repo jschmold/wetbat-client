@@ -1,0 +1,7 @@
+.dash-card {
+  border: 1px solid var(--medium-grey);
+  display: grid;
+  grid-template-rows: 32px auto;
+  height: 360pt;
+  border-radius: 8pt;
+}

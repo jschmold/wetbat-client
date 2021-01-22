@@ -23,5 +23,76 @@
     overflow: auto;
     grid-column: 2;
     grid-row: 2;
+    padding: 20px;
+
+    .cards {
+      max-width: 1920px;
+      margin-left: auto;
+      margin-right: auto;
+      display: grid;
+
+      grid-template-columns: 1fr;
+      grid-column-gap: 20px;
+      grid-row-gap: 20px;
+    }
+  }
+}
+
+.dash-card {
+  grid-column: span 1;
+}
+
+@media screen and (min-width: 1080px) {
+  .home.page .page-content .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dash-card {
+    grid-column: span 1;
+  }
+
+  .dash-card.medium {
+    grid-column: span 2;
+  }
+
+  .dash-card.large {
+    grid-column: span 3;
+  }
+}
+
+@media screen and (min-width: 1535px) {
+  .home.page .page-content .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .dash-card {
+    grid-column: span 1;
+  }
+
+  .dash-card.medium {
+    grid-column: span 2;
+  }
+
+  .dash-card.large {
+    grid-column: span 3;
+  }
+}
+
+
+@media screen and (min-width: 1640px) {
+  .home.page .page-content .cards {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .dash-card {
+    grid-column: span 1;
+  }
+
+  .dash-card.medium {
+    grid-column: span 2;
+  }
+
+  .dash-card.large {
+    grid-column: span 3;
   }
 }
