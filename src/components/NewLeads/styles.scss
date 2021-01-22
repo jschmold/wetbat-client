@@ -1,0 +1,61 @@
+.new-leads.dash-card {
+
+  .content {
+    padding: 10pt;
+  }
+
+  .leads {
+    padding: 0px;
+    margin: 0;
+    list-style: none;
+
+    .lead-item {
+      display: inline-grid;
+      grid-template-columns: 32pt 1fr 50pt;
+      grid-template-rows: 1fr 1fr;
+      grid-column-gap: 10pt;
+      padding: 10pt;
+      width: 100%;
+      box-sizing: border-box;
+      border-radius: 8pt;
+      cursor: pointer;
+      color: var(--faded-grey);
+
+      .avatar {
+        grid-row-start: 1;
+        grid-row-end: 3;
+        grid-column: 1;
+        overflow: hidden;
+        border-radius: 64pt;
+        height: 32pt;
+        width: 32pt;
+      }
+
+      .lead-name {
+        grid-column: 2;
+        grid-row: 1;
+        margin: 0;
+        align-self: end;
+      }
+
+      .lead-message {
+        grid-column: 2;
+        grid-row: 2;
+        margin: 0;
+        font-size: 10pt;
+      }
+
+      .timestamp {
+        grid-row: 1;
+        grid-column: 3;
+        font-size: 10pt;
+        justify-self: end;
+        align-self: end;
+      }
+    }
+
+    .lead-item:hover {
+      background-color: var(--soft-white);
+    }
+  }
+}
