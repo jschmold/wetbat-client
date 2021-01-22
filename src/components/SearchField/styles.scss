@@ -15,7 +15,6 @@
     display: flex;
     align-items: center;
     color: var(--medium-grey);
-    padding: 0 5pt;
 
     .icon {
       font-size: 15pt;
@@ -35,9 +34,11 @@
 .search-field.has-text {
   background-color: var(--secondary-background);
   width: 100%;
+  padding: 0 3pt;
   transition: 150ms;
 
   .input-field input {
+    padding: 0 5pt;
     transition: 150ms;
     opacity: 1;
   }

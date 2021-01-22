@@ -1,17 +1,21 @@
 .side-bar {
-  width: 130pt;
+  width: 150pt;
   height: auto;
   background-color: var(--secondary-background);
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.4);
  
   .nav-items {
+    list-style: none;
+    padding: 0;
+
     .nav-item {
       display: grid;
       grid-template-columns: 24pt 1fr;
       align-items: center;
-      padding-left: 15pt;
+      padding-left: 24pt;
       color: var(--brand-secondary);
       background-color: var(--secondary-background);
-      width: 100%;
+      height: 44pt;
 
       cursor: pointer;
       transition: filter 150ms;
