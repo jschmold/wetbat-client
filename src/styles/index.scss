@@ -1,2 +1,25 @@
 @import "./vars";
 @import "./components";
+@import "./mixins";
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--soft-grey); 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--medium-grey); 
+  border-radius: 12px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #8f8f8f; 
+}
+

@@ -1,7 +1,8 @@
 import React from 'react';
 import ActionBar from '../components/ActionBar';
 import SideBar from '../components/Sidebar';
-import DashCard from '../components/DashCard';
+
+import StatBanner from '../components/InfoBanner';
 
 import './Home.scss';
 
@@ -12,29 +13,7 @@ export function HomePage() {
       <SideBar />
       <div className="page-content">
         <div className="cards">
-          <DashCard>
-            <h3>Yeet</h3>
-          </DashCard>
-
-          <DashCard>
-            <h3>Yeet</h3>
-          </DashCard>
-
-          <DashCard>
-            <h3>Yeet</h3>
-          </DashCard>
-
-          <DashCard>
-            <h3>Yeet</h3>
-          </DashCard>
-
-          <DashCard>
-            <h3>Yeet</h3>
-          </DashCard>
-
-          <DashCard>
-            <h3>Yeet</h3>
-          </DashCard>
+          <StatBanner />
         </div>
       </div>
     </div>

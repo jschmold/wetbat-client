@@ -1,3 +1,5 @@
+@import "../styles/mixins";
+
 .home.page {
   display: grid;
   grid-template-columns: auto 1fr;
@@ -42,7 +44,7 @@
   grid-column: span 1;
 }
 
-@media screen and (min-width: 1080px) {
+@include dashboard-2-col {
   .home.page .page-content .cards {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -51,16 +53,12 @@
     grid-column: span 1;
   }
 
-  .dash-card.medium {
+  .dash-card.medium, .dash-card.large, .dash-card.xlarge {
     grid-column: span 2;
-  }
-
-  .dash-card.large {
-    grid-column: span 3;
   }
 }
 
-@media screen and (min-width: 1535px) {
+@include dashboard-3-col {
   .home.page .page-content .cards {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -73,13 +71,13 @@
     grid-column: span 2;
   }
 
-  .dash-card.large {
+  .dash-card.large, .dash-card.xlarge {
     grid-column: span 3;
   }
 }
 
 
-@media screen and (min-width: 1640px) {
+@include dashboard-4-col {
   .home.page .page-content .cards {
     grid-template-columns: repeat(4, 1fr);
   }
@@ -94,5 +92,9 @@
 
   .dash-card.large {
     grid-column: span 3;
+  }
+
+  .dash-card.xlarge {
+    grid-column: span 4;
   }
 }

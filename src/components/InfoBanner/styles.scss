@@ -1,0 +1,82 @@
+@import "../../styles/mixins";
+
+.info-banner.dash-card {
+  background: linear-gradient(to right, var(--brand-primary), var(--medium-blue));
+  overflow-y: auto;
+  overflow-x: hidden;
+  color: white;
+  
+
+  .description {
+    .title {
+      margin: 0;
+      line-height: 45pt;
+    }
+  }
+
+  .details {
+    .image-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 240pt;
+      width: 100%;
+    }
+  }
+
+  .stats {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+
+    .stat-item {
+      display: inline-flex;
+      align-items: center;
+
+      .amount {
+        margin-right: 5pt;
+        color: yellow;
+        font-size: 30pt;
+      }
+
+      .label {
+        font-size: 13pt;
+        text-transform: uppercase;
+        line-height: 13pt;
+        width: min-content;
+      }
+    }
+  }
+}
+
+@include dashboard-2-col {
+  .info-banner.dash-card {
+    .contents {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-column-gap: 10pt;
+      align-items: flex-start;
+
+      .details {
+        display: inline-flex;
+        justify-content: space-between;
+        flex-direction: column;
+      }
+    }
+  }
+}
+
+@include dashboard-3-col {
+  .info-banner.dash-card .contents .stats {
+    .stat-item {
+      .amount {
+        font-size: 40pt;
+      }
+
+      .label {
+        font-size: 20pt;
+        line-height: 18pt;
+      }
+    }
+  }
+}
