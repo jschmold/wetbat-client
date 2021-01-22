@@ -8,5 +8,16 @@
     .input-group {
       grid-column: span 1;
     }
+    
+  }
+
+  .submit-button {
+    height: 3.6em;
+    outline: none;
+    border: none;
+    border-radius: 500px;
+    background-color: var(--brand-primary);
+    color: white;
+    font-size: 12pt;
   }
 }

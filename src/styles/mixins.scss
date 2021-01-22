@@ -1,5 +1,5 @@
 @mixin dashboard-2-col {
-  @media screen and (min-width: 1080px) {
+  @media screen and (min-width: 1000px) {
     @content;
   }
 }

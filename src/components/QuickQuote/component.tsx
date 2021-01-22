@@ -1,29 +1,26 @@
 import React, { useState } from 'react';
-import Materialize from 'materialize-css';
+import {
+  TextField,
+  FormControl,
+  Select,
+  MenuItem,
+  InputLabel,
+} from '@material-ui/core';
 
 import './styles.scss';
 
 interface IQuoteForm {
-  from: string;
-  destinationId: string;
-  departureDate: string;
-  returnDate: string;
-  people: number;
-  transportation: string;
-  name: string;
+  from?: string;
+  destinationId?: string;
+  departureDate?: string;
+  returnDate?: string;
+  people?: number;
+  transportation?: string;
+  name?: string;
 }
 
 export default function QuickQuote() {
-  const [form, setForm] = useState<IQuoteForm>({
-    from: '',
-    destinationId: '',
-    departureDate: '',
-    returnDate: '',
-    people: 0,
-    transportation: '',
-    name: '',
-  });
-
+  const [form, setForm] = useState<IQuoteForm>({});
   const setFormField = (k: keyof IQuoteForm, v: IQuoteForm[typeof k]) =>
     setForm({ ...form, [k]: v });
 
@@ -38,78 +35,78 @@ export default function QuickQuote() {
   return (
     <div className="dash-card with-actions quick-quote">
       <div className="actions"></div>
-      <div className="content">
-        <div className="input-field">
-          <label>From</label>
-          <input
-            type="text"
+      <form className="content" noValidate action="none">
+        <FormControl variant="filled">
+          <InputLabel shrink>From</InputLabel>
+          <Select
+            label="From"
+            onChange={(a) => setFrom(a.target.value as string)}
             value={form.from}
-            onChange={(e) => setFrom(e.target.value)}
-          />
-        </div>
-
-        <div className="input-field">
-          <label>Destination</label>
-          <input
-            type="text"
-            value={form.destinationId}
-            onChange={(e) => setDestinationId(e.target.value)}
-          />
-        </div>
-
-        <div className="input-field">
-          <label>Depart Date</label>
-          <input
-            type="text"
-            className="datepicker"
-            value={form.departureDate}
-            onChange={(e) => setDepartureDate(e.target.value)}
-          />
-        </div>
-
-        <div className="input-field">
-          <label>Return Date</label>
-          <input
-            type="text"
-            className="datepicker"
-            value={form.returnDate}
-            onChange={(e) => setReturnDate(e.target.value)}
-          />
-        </div>
-
-        <div className="input-field">
-          <input
-            type="number"
-            value={form.people}
-            min={0}
-            max={20}
-            onChange={(e) => setPeople(parseInt(e.target.value, 10))}
-          />
-          <label>People</label>
-        </div>
-
-        <div className="input-field">
-          <select
-            value={form.transportation}
-            onChange={(e) => setTransportation(e.target.value)}
+            labelId="quick-quote-from-label"
           >
-            <option value=""></option>
-            <option value="rental-car">Car Rental</option>
-            <option value="service">Car Service</option>
-            <option value="taxi">Taxis</option>
-          </select>
-          <label>Transportation</label>
-        </div>
+            <MenuItem value="">None</MenuItem>
+          </Select>
+        </FormControl>
 
-        <div className="input-field">
-          <input
-            type="text"
-            value={form.name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <label>Name</label>
-        </div>
-      </div>
+        <FormControl variant="filled">
+          <InputLabel shrink>Destination</InputLabel>
+          <Select
+            value={form.destinationId}
+            onChange={(e) => setDestinationId(e.target.value as string)}
+          >
+            <MenuItem value="">None</MenuItem>
+          </Select>
+        </FormControl>
+
+        <TextField
+          type="date"
+          label="Depart Date"
+          variant="filled"
+          defaultValue=""
+          value={form.departureDate}
+          onChange={(e) => setDepartureDate(e.target.value)}
+          InputLabelProps={{ shrink: true }}
+        />
+
+        <TextField
+          variant="filled"
+          label="Return Date"
+          type="date"
+          className="datepicker"
+          InputLabelProps={{ shrink: true }}
+          value={form.returnDate}
+          onChange={(e) => setReturnDate(e.target.value)}
+        />
+
+        <TextField
+          type="number"
+          label="People"
+          variant="filled"
+          value={form.people}
+          onChange={(e) => setPeople(parseInt(e.target.value, 10))}
+        />
+
+        <FormControl variant="filled">
+          <InputLabel>Transportation</InputLabel>
+          <Select
+            value={form.transportation}
+            onChange={(e) => setTransportation(e.target.value as string)}
+          >
+            <MenuItem value="">None</MenuItem>
+            <MenuItem value="rental-car">Car Rental</MenuItem>
+            <MenuItem value="service">Car Service</MenuItem>
+            <MenuItem value="taxi">Taxis</MenuItem>
+          </Select>
+        </FormControl>
+        <TextField
+          variant="filled"
+          label="Name"
+          value={form.name}
+          onChange={(e) => setName(e.target.value)}
+        />
+
+        <button className="submit-button">Create Quote</button>
+      </form>
     </div>
   );
 }
