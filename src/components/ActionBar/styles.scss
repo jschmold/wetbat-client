@@ -25,7 +25,21 @@
     }
   }
 
-  .search-bar {
+  .nav-controls, .nav-controls li {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-controls {
+    color: white;
+    margin-right: 15pt;
+
+    li {
+      padding: 0 15pt;
+    }
+  }
+
+  .search-field {
     margin-left: auto;
   }
 }

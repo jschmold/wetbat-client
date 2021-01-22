@@ -1,5 +1,6 @@
 import React from 'react';
 import Avatar from '../Avatar';
+import SearchField from '../SearchField';
 
 import './styles.scss';
 
@@ -10,8 +11,21 @@ export default function ActionBar() {
         <i className="icon material-icons">dashboard</i>
         <h4>Wet Bat</h4>
       </div>
-      <div className="search-bar"></div>
-      <div className="nav-controls"></div>
+
+      <SearchField />
+
+      <ul className="nav-controls">
+        <li className="notifications">
+          <i className="material-icons">notifications</i>
+        </li>
+        <li className="messages">
+          <i className="material-icons">mode_comment</i>
+        </li>
+        <li className="settings">
+          <i className="material-icons">settings</i>
+        </li>
+      </ul>
+
       <Avatar />
     </div>
   );

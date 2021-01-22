@@ -1,6 +1,6 @@
 import React from 'react';
 import ActionBar from '../components/ActionBar';
-import SideBar from '../components/SideBar';
+import SideBar from '../components/Sidebar';
 
 import './Home.scss';
 
