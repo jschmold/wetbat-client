@@ -1,0 +1,16 @@
+.avatar-bubble {
+  height: 32pt;
+  width: 32pt;
+  overflow: hidden;
+  border-radius: 48px;
+  background-color: transparent;
+
+  img {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: var(--soft-grey);
+    height: 100%;
+    width: 100%;
+  }
+}

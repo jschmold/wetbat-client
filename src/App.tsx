@@ -1,22 +1,16 @@
-import React from 'react'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import React from 'react';
 
-import { Navbar } from './components/Navbar'
-import { About } from './pages/About'
-import { Home } from './pages/Home'
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { HomePage } from './pages/Home';
 
-const App: React.FC = () => {
+export default function App() {
   return (
     <BrowserRouter>
-      <Navbar />
-      <div className="container">
+      <div className="app-container">
         <Switch>
-          <Route path="/" component={Home} exact />
-          <Route path="/about" component={About} />
+          <Route path="/" component={HomePage} exact />
         </Switch>
       </div>
     </BrowserRouter>
-  )
+  );
 }
-
-export default App

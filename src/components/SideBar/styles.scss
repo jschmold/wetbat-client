@@ -1,0 +1,49 @@
+.side-bar {
+  width: 130pt;
+  height: auto;
+  background-color: var(--secondary-background);
+ 
+  .nav-items {
+    .nav-item {
+      display: grid;
+      grid-template-columns: 24pt 1fr;
+      align-items: center;
+      padding-left: 15pt;
+      color: var(--brand-secondary);
+      background-color: var(--secondary-background);
+      width: 100%;
+
+      cursor: pointer;
+      transition: filter 150ms;
+
+      &:hover {
+        filter: brightness(0.95);
+        transition: filter 150ms;
+      }
+    }
+
+    .footer-item {
+      font-size: 10pt;
+      line-height: 10pt;
+      padding: 0 10pt;
+      text-align: center;
+
+      /** copyright is using the background with a filter so it always looks darkened */
+      /** note: only works with light backgrounds. */
+      .copyright {
+        color: var(--secondary-background);
+        filter: brightness(0.75);
+      }
+
+    }
+  }
+  
+
+  .divider {
+    background-color: var(--secondary-background);
+    filter: brightness(0.93);
+    height: 2px;
+    width: 100%;
+    display: block;
+  }
+}

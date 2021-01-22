@@ -1,0 +1,31 @@
+.action-bar {
+  background-color: var(--brand-secondary);
+  height: 48pt;
+  width: 100vw;
+  position: static;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  align-items: center;
+  padding: 0pt 10pt;
+
+  .logo {
+    display: flex;
+    align-items: center;
+    color: white;
+
+    .icon {
+      margin-right: 10pt;
+    }
+
+    h4 {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  .search-bar {
+    margin-left: auto;
+  }
+}
