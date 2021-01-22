@@ -1,0 +1,20 @@
+.dash-card.pending-quotes {
+  .content {
+
+    table {
+      width: 100%;
+    }
+
+    tr {
+      font-size: 10pt;
+      text-align: left;
+      color: var(--faded-grey);
+    }
+
+    table tbody {
+      tr {
+        line-height: 20pt;
+      }
+    }
+  }
+}

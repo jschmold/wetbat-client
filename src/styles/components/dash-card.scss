@@ -13,13 +13,13 @@
 
 .dash-card.with-actions {
   display: grid;
-  grid-template-rows: 46pt auto;
+  grid-template-rows: 56pt auto;
 
   .actions {
     display: grid;
     grid-template-columns: 32pt 1fr auto;
     align-items: center;
-    padding: 0 20pt;
+    padding: 10pt 20pt;
     border-bottom: 1px solid var(--soft-grey);
 
     .icon {

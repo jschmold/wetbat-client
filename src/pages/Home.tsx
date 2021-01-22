@@ -4,6 +4,7 @@ import SideBar from '../components/Sidebar';
 
 import StatBanner from '../components/InfoBanner';
 import QuickQuote from '../components/QuickQuote';
+import PendingQuotes from '../components/PendingQuotes';
 
 import './Home.scss';
 
@@ -16,6 +17,7 @@ export function HomePage() {
         <div className="cards">
           <StatBanner />
           <QuickQuote />
+          <PendingQuotes />
         </div>
       </div>
     </div>
