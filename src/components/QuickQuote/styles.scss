@@ -1,9 +1,9 @@
 .quick-quote.dash-card {
   .content {
-    padding: 10pt;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-column-gap: 10px;
+    grid-column-gap: 10pt;
+    grid-row-gap: 20pt;
 
     .input-group {
       grid-column: span 1;

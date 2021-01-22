@@ -1,10 +1,10 @@
 .dash-card {
   border: 1px solid var(--soft-grey);
-  height: 360pt;
+  max-height: 400pt;
   border-radius: 8pt;
   background-color: white;
 
-  .contents {
+  .content {
     padding: 20pt;
     height: 100%;
     box-sizing: border-box;
@@ -19,7 +19,7 @@
     display: grid;
     grid-template-columns: 32pt 1fr auto;
     align-items: center;
-    padding: 0 10pt;
+    padding: 0 20pt;
     border-bottom: 1px solid var(--soft-grey);
 
     .icon {
@@ -29,10 +29,10 @@
       margin-right: 10pt;
     }
 
-    .label {
+    .title {
       margin: 0;
       padding: 0;
-      font-size: 24pt;
+      font-size: 16pt;
       color: var(--brand-secondary);
       font-weight: 400;
     }
@@ -41,6 +41,15 @@
       display: flex;
       align-items: center;
       color: var(--medium-grey);
+
+      .icon {
+        color: inherit;
+        margin: 0;
+      }
+
+      .icon + .icon {
+        margin-left: 10pt;
+      }
     }
   }
 }

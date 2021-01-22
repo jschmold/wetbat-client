@@ -52,7 +52,7 @@
 
 @include dashboard-2-col {
   .info-banner.dash-card {
-    .contents {
+    .content {
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-column-gap: 10pt;
@@ -68,7 +68,7 @@
 }
 
 @include dashboard-3-col {
-  .info-banner.dash-card .contents .stats {
+  .info-banner.dash-card .content .stats {
     .stat-item {
       .amount {
         font-size: 40pt;

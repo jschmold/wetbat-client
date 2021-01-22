@@ -5,7 +5,7 @@ import './styles.scss';
 export default function InfoBanner() {
   return (
     <div className="xlarge dash-card info-banner">
-      <div className="contents">
+      <div className="content">
         <div className="description">
           <h3 className="title">Welcome to your dashboard</h3>
           <p className="text">

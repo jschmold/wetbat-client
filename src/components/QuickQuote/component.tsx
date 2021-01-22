@@ -34,7 +34,13 @@ export default function QuickQuote() {
 
   return (
     <div className="dash-card with-actions quick-quote">
-      <div className="actions"></div>
+      <div className="actions">
+        <i className="icon material-icons">fast_forward</i>
+        <h4 className="title">Quick Quote</h4>
+        <div className="extras">
+          <i className="icon material-icons">fullscreen</i>
+        </div>
+      </div>
       <form className="content" noValidate action="none">
         <FormControl variant="filled">
           <InputLabel shrink>From</InputLabel>
