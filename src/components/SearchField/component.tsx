@@ -19,6 +19,7 @@ export default function SearchField() {
         <i className="icon material-icons">search</i>
         <input
           className="browser-default"
+          placeholder="Search"
           type="text"
           value={text}
           onChange={(evt) => setText(evt.target.value)}

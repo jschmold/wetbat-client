@@ -5,7 +5,7 @@
 }
 
 @mixin dashboard-3-col {
-  @media screen and (min-width: 1535px) {
+  @media screen and (min-width: 1630px) {
     @content;
   }
 }

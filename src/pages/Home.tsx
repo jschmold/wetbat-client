@@ -7,6 +7,7 @@ import QuickQuote from '../components/QuickQuote';
 import PendingQuotes from '../components/PendingQuotes';
 import NewLeads from '../components/NewLeads';
 import PopularPlaces from '../components/PopularPlaces';
+import TeamChat from '../components/TeamChat';
 
 import './Home.scss';
 
@@ -22,6 +23,7 @@ export function HomePage() {
           <PendingQuotes />
           <NewLeads />
           <PopularPlaces />
+          <TeamChat />
         </div>
       </div>
     </div>
