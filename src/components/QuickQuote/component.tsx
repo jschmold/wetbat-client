@@ -1,36 +1,66 @@
-import React, { useState } from 'react';
+// TODO: Hookup to server
+// TODO: Hookup to state
+
+import React from 'react';
+
 import {
   TextField,
   FormControl,
   Select,
   MenuItem,
   InputLabel,
+  FormHelperText,
 } from '@material-ui/core';
+
+import { useAllDestinations } from '../../features/destinations/hooks';
+import { IDestination } from '../../types/destination';
+import { FormEvent, useState } from 'react';
+import { defaultFormErrors, defaultFormValue } from './constants';
+import { IFormErrors, IQuoteForm } from './types';
+import { validateForm } from './validation';
 
 import './styles.scss';
 
-interface IQuoteForm {
-  from?: string;
-  destinationId?: string;
-  departureDate?: string;
-  returnDate?: string;
-  people?: number;
-  transportation?: string;
-  name?: string;
-}
-
 export default function QuickQuote() {
-  const [form, setForm] = useState<IQuoteForm>({});
-  const setFormField = (k: keyof IQuoteForm, v: IQuoteForm[typeof k]) =>
-    setForm({ ...form, [k]: v });
+  const [form, setForm] = useState<IQuoteForm>(defaultFormValue);
+  const [errors, setFormErrors] = useState<IFormErrors>(defaultFormErrors);
 
-  const setFrom = (v: string) => setFormField('from', v);
-  const setDestinationId = (v: string) => setFormField('destinationId', v);
-  const setDepartureDate = (v: string) => setFormField('departureDate', v);
-  const setReturnDate = (v: string) => setFormField('returnDate', v);
-  const setPeople = (v: number) => setFormField('people', v);
-  const setTransportation = (v: string) => setFormField('transportation', v);
-  const setName = (v: string) => setFormField('name', v);
+  const setFormField = (k: keyof IQuoteForm) => (v: IQuoteForm[typeof k]) => {
+    resetError(k);
+    setForm({ ...form, [k]: v });
+  };
+
+  const setError = (k: keyof IFormErrors) => (v: IFormErrors[typeof k]) => {
+    setFormErrors({ ...errors, [k]: v });
+  };
+
+  const resetError = (k: keyof IFormErrors) => setError(k)(null);
+
+  const setFrom = setFormField('fromId');
+  const setDestinationId = setFormField('destinationId');
+  const setDepartureDate = setFormField('departureDate');
+  const setReturnDate = setFormField('returnDate');
+  const setTransportation = setFormField('transportation');
+  const setName = setFormField('name');
+  const setPeople = (v: number) => {
+    const value = Math.max(v, 1);
+    setFormField('people')(value);
+  };
+  const runValidation = () => setFormErrors(validateForm(form));
+
+  const hasErrors = () =>
+    Object.values(errors).filter((a) => a != null).length > 0;
+
+  const destinations = useAllDestinations();
+
+  const submit = (a: FormEvent<HTMLFormElement>) => {
+    a.preventDefault();
+    runValidation();
+
+    if (hasErrors()) return;
+
+    setForm(defaultFormValue);
+  };
 
   return (
     <div className="dash-card with-actions quick-quote">
@@ -41,17 +71,20 @@ export default function QuickQuote() {
           <i className="icon material-icons">fullscreen</i>
         </div>
       </div>
-      <form className="content" noValidate action="none">
+      <form className="content" noValidate onSubmit={(a) => submit(a)}>
         <FormControl variant="filled">
           <InputLabel shrink>From</InputLabel>
           <Select
             label="From"
             onChange={(a) => setFrom(a.target.value as string)}
-            value={form.from}
-            labelId="quick-quote-from-label"
+            value={form.fromId}
           >
             <MenuItem value="">None</MenuItem>
+            {destinations.map(destinationItem)}
           </Select>
+          {!!errors.fromId && (
+            <FormHelperText error>{errors.fromId}</FormHelperText>
+          )}
         </FormControl>
 
         <FormControl variant="filled">
@@ -61,17 +94,22 @@ export default function QuickQuote() {
             onChange={(e) => setDestinationId(e.target.value as string)}
           >
             <MenuItem value="">None</MenuItem>
+            {destinations.map(destinationItem)}
           </Select>
+          {!!errors.destinationId && (
+            <FormHelperText error>{errors.destinationId}</FormHelperText>
+          )}
         </FormControl>
 
         <TextField
           type="date"
           label="Depart Date"
           variant="filled"
-          defaultValue=""
           value={form.departureDate}
           onChange={(e) => setDepartureDate(e.target.value)}
           InputLabelProps={{ shrink: true }}
+          error={!!errors.departureDate}
+          helperText={errors.departureDate}
         />
 
         <TextField
@@ -82,6 +120,8 @@ export default function QuickQuote() {
           InputLabelProps={{ shrink: true }}
           value={form.returnDate}
           onChange={(e) => setReturnDate(e.target.value)}
+          error={!!errors.returnDate}
+          helperText={errors.returnDate}
         />
 
         <TextField
@@ -90,6 +130,8 @@ export default function QuickQuote() {
           variant="filled"
           value={form.people}
           onChange={(e) => setPeople(parseInt(e.target.value, 10))}
+          error={!!errors.people}
+          helperText={errors.people}
         />
 
         <FormControl variant="filled">
@@ -109,10 +151,20 @@ export default function QuickQuote() {
           label="Name"
           value={form.name}
           onChange={(e) => setName(e.target.value)}
+          error={errors.name != null}
+          helperText={errors.name}
         />
 
         <button className="submit-button">Create Quote</button>
       </form>
     </div>
+  );
+}
+
+function destinationItem(a: IDestination) {
+  return (
+    <MenuItem key={a.id} value={a.id}>
+      {a.name}
+    </MenuItem>
   );
 }

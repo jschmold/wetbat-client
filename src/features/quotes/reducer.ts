@@ -2,8 +2,8 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IQuote } from '../../types/quote';
 
 export interface IQuoteState {
-  ids: string[];
-  entities: { [key: string]: IQuote };
+  ids: number[];
+  entities: { [key: number]: IQuote };
 }
 
 const quoteSlice = createSlice({
@@ -11,15 +11,9 @@ const quoteSlice = createSlice({
   initialState: { ids: [], entities: {} } as IQuoteState,
   reducers: {
     loadQuotes: (state: IQuoteState, action: PayloadAction<IQuote[]>) => {
-      console.log(action.payload);
-      if (!Array.isArray(action.payload)) {
-        console.error('Payload not an array: ', action.payload);
-        debugger;
-      }
-
       for (const quote of action.payload) {
-        if (!state.ids.includes(quote.oid)) {
-          state.ids.push(quote.oid);
+        if (!state.ids.includes(quote.id)) {
+          state.ids.push(quote.id);
         }
 
         state.entities[quote.id] = quote;

@@ -1,11 +1,35 @@
 import React from 'react';
-import { useQuotes } from '../../features/quotes/hooks';
+import { useDestinationState } from '../../features/destinations/hooks';
+import { useAllQuotes } from '../../features/quotes/hooks';
 import { IQuote } from '../../types/quote';
 
 import './styles.scss';
 
+interface IListItem {
+  oid: string;
+  id: number;
+  name: string;
+  destination: string;
+  amount: string;
+}
+
+function mapListings(all: IQuote[]): IListItem[] {
+  const destinations = useDestinationState();
+  const getDest = (a: IQuote) =>
+    destinations.entities[a.destinationId]?.name ?? '';
+
+  return all.map((q) => ({
+    oid: q.oid,
+    id: q.id,
+    name: q.name,
+    destination: getDest(q),
+    amount: `$ ${q.amount ?? 0}`,
+  }));
+}
+
 export default function PendingQuotes() {
-  const quotes = useQuotes();
+  const quotes = mapListings(useAllQuotes());
+
   return (
     <div className="dash-card with-actions pending-quotes">
       <div className="actions">
@@ -34,12 +58,12 @@ export default function PendingQuotes() {
   );
 }
 
-function quoteRow(arg: IQuote) {
+function quoteRow(arg: IListItem) {
   return (
     <tr key={arg.oid}>
       <td>{arg.id}</td>
       <td>{arg.name.slice(0, 40)}</td>
-      <td>{arg.destinationId}</td>
+      <td>{arg.destination}</td>
       <td>{arg.amount}</td>
     </tr>
   );
