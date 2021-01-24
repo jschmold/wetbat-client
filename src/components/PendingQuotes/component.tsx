@@ -1,8 +1,50 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import './styles.scss';
 
+interface IListItem {
+  id: string;
+  name: string;
+  destination: string;
+  amount: string;
+}
+
+const defaultQuotes: IListItem[] = [
+  {
+    id: '1234567',
+    name: 'LOREM IPSUM DOLOR',
+    destination: 'Honk Kong, CN',
+    amount: '$ 1,000.00',
+  },
+  {
+    id: '1234567',
+    name: 'LOREM IPSUM DOLOR',
+    destination: 'Honk Kong, CN',
+    amount: '$ 1,000.00',
+  },
+  {
+    id: '1234567',
+    name: 'LOREM IPSUM DOLOR',
+    destination: 'Honk Kong, CN',
+    amount: '$ 1,000.00',
+  },
+  {
+    id: '1234567',
+    name: 'LOREM IPSUM DOLOR',
+    destination: 'Honk Kong, CN',
+    amount: '$ 1,000.00',
+  },
+  {
+    id: '1234567',
+    name: 'LOREM IPSUM DOLOR',
+    destination: 'Honk Kong, CN',
+    amount: '$ 1,000.00',
+  },
+];
+
 export default function PendingQuotes() {
+  const [quotes] = useState(defaultQuotes);
+
   return (
     <div className="dash-card with-actions pending-quotes">
       <div className="actions">
@@ -25,44 +67,20 @@ export default function PendingQuotes() {
             </tr>
           </thead>
 
-          <tbody>
-            <tr>
-              <td>1234567</td>
-              <td>LOREM IPSUM DOLOR</td>
-              <td>Hong Kong, CN</td>
-              <td>$ 1,000.00</td>
-            </tr>
-
-            <tr>
-              <td>1234567</td>
-              <td>LOREM IPSUM DOLOR</td>
-              <td>Hong Kong, CN</td>
-              <td>$ 1,000.00</td>
-            </tr>
-
-            <tr>
-              <td>1234567</td>
-              <td>LOREM IPSUM DOLOR</td>
-              <td>Hong Kong, CN</td>
-              <td>$ 1,000.00</td>
-            </tr>
-
-            <tr>
-              <td>1234567</td>
-              <td>LOREM IPSUM DOLOR</td>
-              <td>Hong Kong, CN</td>
-              <td>$ 1,000.00</td>
-            </tr>
-
-            <tr>
-              <td>1234567</td>
-              <td>LOREM IPSUM DOLOR</td>
-              <td>Hong Kong, CN</td>
-              <td>$ 1,000.00</td>
-            </tr>
-          </tbody>
+          <tbody>{quotes.map(quoteRow)}</tbody>
         </table>
       </div>
     </div>
+  );
+}
+
+function quoteRow(arg: IListItem) {
+  return (
+    <tr>
+      <td>{arg.id}</td>
+      <td>{arg.name}</td>
+      <td>{arg.destination}</td>
+      <td>{arg.amount}</td>
+    </tr>
   );
 }

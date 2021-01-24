@@ -1,5 +1,5 @@
 @mixin dashboard-2-col {
-  @media screen and (min-width: 1000px) {
+  @media screen and (min-width: 1160px) {
     @content;
   }
 }
@@ -11,7 +11,7 @@
 }
 
 @mixin dashboard-4-col {
-  @media screen and (min-width: 1640px) {
+  @media screen and (min-width: 1921px) {
     @content;
   }
 }
