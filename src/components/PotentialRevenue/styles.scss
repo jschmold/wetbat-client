@@ -1,0 +1,13 @@
+.potential-revenue.dash-card {
+  .content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    min-height: 240pt;
+
+    h3 {
+      display: inline-block;
+    }
+  }
+}
