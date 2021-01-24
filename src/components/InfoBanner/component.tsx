@@ -28,15 +28,15 @@ export default function InfoBanner() {
           </div>
 
           <ul className="stats">
-            <li className="stat-item">
+            <li className="stat-item new-leads">
               <span className="amount">101</span>
               <span className="label">new leads</span>
             </li>
-            <li className="stat-item">
+            <li className="stat-item quotes">
               <span className="amount">{quotes}</span>
               <span className="label">quotes created</span>
             </li>
-            <li className="stat-item">
+            <li className="stat-item pending-orders">
               <span className="amount">40</span>
               <span className="label">pending orders</span>
             </li>

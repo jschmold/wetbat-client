@@ -1,6 +1,3 @@
-// TODO: Hookup to server
-// TODO: Hookup to state
-
 import React from 'react';
 
 import {

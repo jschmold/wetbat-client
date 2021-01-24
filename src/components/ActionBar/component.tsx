@@ -1,3 +1,7 @@
+/**
+ * This is the top navigation bar. Users can access their profile, their settings, and search
+ * the app via this component.
+ */
 import React from 'react';
 import Avatar from '../Avatar';
 import SearchField from '../SearchField';

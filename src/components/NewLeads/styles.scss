@@ -1,6 +1,7 @@
 .new-leads.dash-card {
 
   .content {
+    overflow-y: auto;
     padding: 10pt;
   }
 
@@ -51,6 +52,7 @@
         font-size: 10pt;
         justify-self: end;
         align-self: end;
+        white-space: nowrap;
       }
     }
 

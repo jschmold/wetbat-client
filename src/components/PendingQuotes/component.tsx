@@ -62,7 +62,7 @@ export default function PendingQuotes() {
 
 function quoteRow(arg: IListItem) {
   return (
-    <tr key={arg.oid}>
+    <tr className="pending-quote" key={arg.oid}>
       <td>{arg.id}</td>
       <td>{arg.name.slice(0, 40)}</td>
       <td>{arg.destination}</td>
