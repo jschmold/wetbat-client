@@ -3,18 +3,19 @@ import React, { useState } from 'react';
 import './styles.scss';
 
 const defaultListings = [
-  { name: 'Lorem ipsum dolor sit', color: '#A4D4AE', amount: 0.2 },
-  { name: 'Lorem ipsum dolor sit', color: '#34B1D6', amount: 0.3 },
-  { name: 'Lorem ipsum dolor sit', color: '#79C514', amount: 0.4 },
-  { name: 'Lorem ipsum dolor sit', color: '#FFB124', amount: 0.6 },
-  { name: 'Lorem ipsum dolor sit', color: '#D593FF', amount: 0.8 },
-  { name: 'Lorem ipsum dolor sit', color: '#FF93CF', amount: 1.0 },
+  { name: 'Lorem ipsum dolor sit', color: '#A4D4AE', amount: 0.2, id: 0 },
+  { name: 'Lorem ipsum dolor sit', color: '#34B1D6', amount: 0.3, id: 1 },
+  { name: 'Lorem ipsum dolor sit', color: '#79C514', amount: 0.4, id: 2 },
+  { name: 'Lorem ipsum dolor sit', color: '#FFB124', amount: 0.6, id: 3 },
+  { name: 'Lorem ipsum dolor sit', color: '#D593FF', amount: 0.8, id: 4 },
+  { name: 'Lorem ipsum dolor sit', color: '#FF93CF', amount: 1.0, id: 5 },
 ];
 
 interface IListItem {
   name: string;
   color: string;
   amount: number;
+  id: number;
 }
 
 export default function PopularPlaces() {
@@ -42,14 +43,14 @@ export default function PopularPlaces() {
   );
 }
 
-function listItem({ color, amount, name }: IListItem) {
+function listItem({ color, amount, name, id }: IListItem) {
   const barStyle = {
     backgroundColor: color,
     width: `${amount * 100}%`,
   };
 
   return (
-    <div className="list-item">
+    <div className="list-item" key={id}>
       <span className="name">{name}</span>
       <div className="bar">
         <div className="inner-bar" style={barStyle}></div>

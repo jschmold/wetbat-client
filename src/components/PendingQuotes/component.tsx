@@ -1,50 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useQuotes } from '../../features/quotes/hooks';
+import { IQuote } from '../../types/quote';
 
 import './styles.scss';
 
-interface IListItem {
-  id: string;
-  name: string;
-  destination: string;
-  amount: string;
-}
-
-const defaultQuotes: IListItem[] = [
-  {
-    id: '1234567',
-    name: 'LOREM IPSUM DOLOR',
-    destination: 'Honk Kong, CN',
-    amount: '$ 1,000.00',
-  },
-  {
-    id: '1234567',
-    name: 'LOREM IPSUM DOLOR',
-    destination: 'Honk Kong, CN',
-    amount: '$ 1,000.00',
-  },
-  {
-    id: '1234567',
-    name: 'LOREM IPSUM DOLOR',
-    destination: 'Honk Kong, CN',
-    amount: '$ 1,000.00',
-  },
-  {
-    id: '1234567',
-    name: 'LOREM IPSUM DOLOR',
-    destination: 'Honk Kong, CN',
-    amount: '$ 1,000.00',
-  },
-  {
-    id: '1234567',
-    name: 'LOREM IPSUM DOLOR',
-    destination: 'Honk Kong, CN',
-    amount: '$ 1,000.00',
-  },
-];
-
 export default function PendingQuotes() {
-  const [quotes] = useState(defaultQuotes);
-
+  const quotes = useQuotes();
   return (
     <div className="dash-card with-actions pending-quotes">
       <div className="actions">
@@ -66,7 +27,6 @@ export default function PendingQuotes() {
               <th>Price</th>
             </tr>
           </thead>
-
           <tbody>{quotes.map(quoteRow)}</tbody>
         </table>
       </div>
@@ -74,12 +34,12 @@ export default function PendingQuotes() {
   );
 }
 
-function quoteRow(arg: IListItem) {
+function quoteRow(arg: IQuote) {
   return (
-    <tr>
+    <tr key={arg.oid}>
       <td>{arg.id}</td>
-      <td>{arg.name}</td>
-      <td>{arg.destination}</td>
+      <td>{arg.name.slice(0, 40)}</td>
+      <td>{arg.destinationId}</td>
       <td>{arg.amount}</td>
     </tr>
   );

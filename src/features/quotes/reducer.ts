@@ -1,6 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IQuote } from '../../types/quote';
-import { ILoadQuotes } from './types';
 
 export interface IQuoteState {
   ids: string[];
@@ -9,15 +8,18 @@ export interface IQuoteState {
 
 const quoteSlice = createSlice({
   name: 'quotes',
-  initialState: {
-    ids: [],
-    entities: {},
-  } as IQuoteState,
+  initialState: { ids: [], entities: {} } as IQuoteState,
   reducers: {
-    loadQuotes: (state: IQuoteState, action: ILoadQuotes) => {
+    loadQuotes: (state: IQuoteState, action: PayloadAction<IQuote[]>) => {
+      console.log(action.payload);
+      if (!Array.isArray(action.payload)) {
+        console.error('Payload not an array: ', action.payload);
+        debugger;
+      }
+
       for (const quote of action.payload) {
-        if (!state.ids.includes(quote.id)) {
-          state.ids.push(quote.id);
+        if (!state.ids.includes(quote.oid)) {
+          state.ids.push(quote.oid);
         }
 
         state.entities[quote.id] = quote;

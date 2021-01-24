@@ -1,8 +1,11 @@
 export interface IQuote {
-  id: string;
+  id: number;
+  oid: string;
   createdAt: Date;
   updatedAt: Date;
   name: string;
+  amount: number;
+  fromId: string;
   destinationId: string;
   departureDate: Date;
   returnDate: Date;

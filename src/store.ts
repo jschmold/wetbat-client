@@ -1,9 +1,13 @@
-import { combineReducers, createStore } from 'redux';
-import { devToolsEnhancer } from 'redux-devtools-extension';
+import ReduxThunk from 'redux-thunk';
+
+import { configureStore } from '@reduxjs/toolkit';
+import { combineReducers } from 'redux';
+import { reducer as quotes } from './features/quotes/reducer';
 
 /* Create root reducer, containing all features of the application */
-const rootReducer = combineReducers({});
-
-const store = createStore(rootReducer, devToolsEnhancer({}));
+const store = configureStore({
+  reducer: combineReducers({ quotes }),
+  middleware: [ReduxThunk],
+});
 
 export default store;

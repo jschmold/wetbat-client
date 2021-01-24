@@ -1,13 +1,18 @@
 import * as constants from './constants';
-import { actions } from './reducer';
+import * as api from './api';
 
-import { Quotes } from '../../services';
+import { actions } from './reducer';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 export const loadQuotes = createAsyncThunk(
   constants.loadQuotes,
   async (_, thunk) => {
-    const data = await Quotes.loadQuotes();
-    thunk.dispatch(actions.loadQuotes(data));
+    console.log('Loading quotes');
+    try {
+      const data = await api.loadQuotes();
+      thunk.dispatch(actions.loadQuotes(data));
+    } catch (err) {
+      console.error(err);
+    }
   }
 );
