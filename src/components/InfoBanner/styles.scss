@@ -50,14 +50,16 @@
   }
 }
 
-@include dashboard-2-col {
+@include dashboard-2-col(true) {
+  .info-banner.dash-card .content .details {
+    width: 100%;
+    padding-bottom: 20pt;
+  }
+}
+
+@include dashboard-2-col(false) {
   .info-banner.dash-card {
     .content {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-column-gap: 10pt;
-      align-items: flex-start;
-
       .details {
         display: inline-flex;
         justify-content: space-between;
@@ -67,16 +69,23 @@
   }
 }
 
-@include dashboard-3-col {
-  .info-banner.dash-card .content .stats {
-    .stat-item {
-      .amount {
-        font-size: 40pt;
-      }
+@include dashboard-3-col(false) {
+  .info-banner.dash-card .content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 10pt;
+    align-items: flex-start;
+    
+    .stats {
+      .stat-item {
+        .amount {
+          font-size: 40pt;
+        }
 
-      .label {
-        font-size: 20pt;
-        line-height: 18pt;
+        .label {
+          font-size: 20pt;
+          line-height: 18pt;
+        }
       }
     }
   }

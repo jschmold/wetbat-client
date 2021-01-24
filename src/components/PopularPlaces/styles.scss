@@ -1,8 +1,9 @@
+@import "../../styles/mixins";
+
 .popular-places.dash-card {
   .content {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
     padding: 0;
+    overflow-y: auto;
 
     .listing {
       padding: 20pt;
@@ -40,6 +41,15 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      /** roughly simulate the spacing in placeholder mode */
+      min-height: 240pt;
     }
   }
+}
+
+@include dashboard-2-col(false) {
+ .popular-places.dash-card .content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+ }
 }

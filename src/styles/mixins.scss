@@ -1,12 +1,24 @@
-@mixin dashboard-2-col {
-  @media screen and (min-width: 1160px) {
-    @content;
+@mixin dashboard-2-col($limit: true) {
+  @if $limit {
+    @media screen and (min-width: 1160px) and (max-width: 1630px) {
+      @content;
+    }
+  } @else {
+    @media screen and (min-width: 1160px) {
+      @content;
+    }
   }
 }
 
-@mixin dashboard-3-col {
-  @media screen and (min-width: 1630px) {
-    @content;
+@mixin dashboard-3-col($limit: true) {
+  @if $limit {
+    @media screen and (min-width: 1630px) and (max-width: 1921px) {
+      @content;
+    }
+  } @else {
+    @media screen and (min-width: 1630px) {
+      @content;
+    }
   }
 }
 

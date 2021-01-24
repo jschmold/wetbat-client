@@ -53,9 +53,10 @@
     grid-column: span 1;
   }
 
-  .dash-card.medium, .dash-card.large, .dash-card.xlarge {
+  .dash-card.medium, .dash-card.large, .dash-card.xlarge, .dash-card.sm-medium-expand {
     grid-column: span 2;
   }
+  
 }
 
 @include dashboard-3-col {
@@ -92,9 +93,5 @@
 
   .dash-card.large {
     grid-column: span 3;
-  }
-
-  .dash-card.xlarge {
-    grid-column: span 4;
   }
 }

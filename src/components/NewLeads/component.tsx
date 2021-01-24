@@ -4,7 +4,7 @@ import './styles.scss';
 
 export default function NewLeads() {
   return (
-    <div className="dash-card with-actions new-leads">
+    <div className="dash-card with-actions new-leads sm-medium-expand">
       <div className="actions">
         <i className="icon material-icons">email</i>
         <h3 className="title">New Leads</h3>
