@@ -10,8 +10,12 @@ const quoteSlice = createSlice({
   name: 'quotes',
   initialState: { ids: [], entities: {} } as IQuoteState,
   reducers: {
-    loadQuotes: (state: IQuoteState, action: PayloadAction<IQuote[]>) => {
-      for (const quote of action.payload) {
+    load: (state: IQuoteState, action: PayloadAction<IQuote | IQuote[]>) => {
+      const arr = Array.isArray(action.payload)
+        ? action.payload
+        : [action.payload];
+
+      for (const quote of arr) {
         if (!state.ids.includes(quote.id)) {
           state.ids.push(quote.id);
         }

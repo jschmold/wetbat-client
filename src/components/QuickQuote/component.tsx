@@ -18,12 +18,16 @@ import { FormEvent, useState } from 'react';
 import { defaultFormErrors, defaultFormValue } from './constants';
 import { IFormErrors, IQuoteForm } from './types';
 import { validateForm } from './validation';
+import { ICreateQuote } from '../../features/quotes/types';
+import { createQuote } from '../../features/quotes/thunks';
+import { useDispatch } from 'react-redux';
 
 import './styles.scss';
 
 export default function QuickQuote() {
   const [form, setForm] = useState<IQuoteForm>(defaultFormValue);
   const [errors, setFormErrors] = useState<IFormErrors>(defaultFormErrors);
+  const dispatch = useDispatch();
 
   const setFormField = (k: keyof IQuoteForm) => (v: IQuoteForm[typeof k]) => {
     resetError(k);
@@ -38,14 +42,30 @@ export default function QuickQuote() {
 
   const setFrom = setFormField('fromId');
   const setDestinationId = setFormField('destinationId');
-  const setDepartureDate = setFormField('departureDate');
-  const setReturnDate = setFormField('returnDate');
   const setTransportation = setFormField('transportation');
   const setName = setFormField('name');
+
+  const setDepartureDate = (v: string) => {
+    if (new Date(v).getTime() < Date.now()) {
+      setError('departureDate')('Future dates only');
+      return;
+    }
+    setFormField('departureDate')(v);
+  };
+
+  const setReturnDate = (v: string) => {
+    if (new Date(v).getTime() < Date.now()) {
+      setError('returnDate')('Future dates only');
+      return;
+    }
+    setFormField('returnDate')(v);
+  };
+
   const setPeople = (v: number) => {
     const value = Math.max(v, 1);
     setFormField('people')(value);
   };
+
   const runValidation = () => setFormErrors(validateForm(form));
 
   const hasErrors = () =>
@@ -58,8 +78,10 @@ export default function QuickQuote() {
     runValidation();
 
     if (hasErrors()) return;
-
     setForm(defaultFormValue);
+
+    const data = tranformFormData({ ...form });
+    dispatch(createQuote(data));
   };
 
   return (
@@ -167,4 +189,16 @@ function destinationItem(a: IDestination) {
       {a.name}
     </MenuItem>
   );
+}
+
+function tranformFormData(form: IQuoteForm): ICreateQuote {
+  return {
+    fromId: form.fromId,
+    destinationId: form.destinationId,
+    departureDate: new Date(form.departureDate),
+    returnDate: new Date(form.returnDate),
+    people: form.people,
+    transportation: form.transportation ?? '',
+    name: form.name,
+  };
 }

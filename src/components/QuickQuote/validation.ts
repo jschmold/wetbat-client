@@ -1,3 +1,5 @@
+import isDate from 'validator/lib/isDate';
+
 import { defaultFormErrors } from './constants';
 import { IQuoteForm, IFormErrors } from './types';
 
@@ -16,11 +18,11 @@ export function validateForm(arg: IQuoteForm): IFormErrors {
     err.destinationId = 'Please select one';
   }
 
-  if (arg.returnDate.length === 0) {
+  if (arg.returnDate.length === 0 || !isDate(arg.returnDate)) {
     err.returnDate = 'Please select a date';
   }
 
-  if (arg.departureDate.length === 0) {
+  if (arg.departureDate.length === 0 || !isDate(arg.departureDate)) {
     err.departureDate = 'Please select a date';
   }
 

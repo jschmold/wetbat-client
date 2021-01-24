@@ -1,8 +1,11 @@
 import React from 'react';
+import { useAllQuotes } from '../../features/quotes/hooks';
 
 import './styles.scss';
 
 export default function InfoBanner() {
+  const quotes = useAllQuotes().length;
+
   return (
     <div className="large dash-card info-banner">
       <div className="content">
@@ -30,7 +33,7 @@ export default function InfoBanner() {
               <span className="label">new leads</span>
             </li>
             <li className="stat-item">
-              <span className="amount">35</span>
+              <span className="amount">{quotes}</span>
               <span className="label">quotes created</span>
             </li>
             <li className="stat-item">

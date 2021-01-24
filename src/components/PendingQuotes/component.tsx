@@ -18,13 +18,15 @@ function mapListings(all: IQuote[]): IListItem[] {
   const getDest = (a: IQuote) =>
     destinations.entities[a.destinationId]?.name ?? '';
 
-  return all.map((q) => ({
-    oid: q.oid,
-    id: q.id,
-    name: q.name,
-    destination: getDest(q),
-    amount: `$ ${q.amount ?? 0}`,
-  }));
+  return all
+    .sort((a, b) => b.id - a.id)
+    .map((q) => ({
+      oid: q.oid,
+      id: q.id,
+      name: q.name,
+      destination: getDest(q),
+      amount: `$ ${q.amount ?? 0}`,
+    }));
 }
 
 export default function PendingQuotes() {
