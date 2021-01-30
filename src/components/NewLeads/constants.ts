@@ -1,4 +1,4 @@
-import Moment from 'moment';
+import moment from 'moment';
 
 import { loremIpsum } from 'lorem-ipsum';
 import { ILeadItem } from './types';
@@ -9,7 +9,7 @@ function fakeLead(id: number): ILeadItem {
   return {
     id,
     name: 'Nicolas Cage',
-    timestamp: Moment().subtract(id, 'hours').toDate(),
+    timestamp: moment().subtract(id, 'hours').toDate(),
     avatar: 'https://www.placecage.com/64/64',
     message: loremIpsum(),
   };

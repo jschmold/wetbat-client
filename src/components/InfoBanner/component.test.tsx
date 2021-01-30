@@ -57,6 +57,6 @@ describe('InfoBanner component', () => {
 
     const amt = el?.querySelector('.amount');
     expect(amt).toBeTruthy();
-    expect(amt?.textContent).toEqual('' + quotes.ids.length);
+    expect(amt?.textContent).toEqual(quotes.ids.length.toString());
   });
 });

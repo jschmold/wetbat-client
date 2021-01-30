@@ -1,11 +1,10 @@
 import React from 'react';
-import Moment from 'moment-timezone';
+import moment from 'moment-timezone';
 
 import { defaultLeads } from './constants';
+import { ILeadItem } from './types';
 
 import './styles.scss';
-
-import { ILeadItem } from './types';
 
 export default function NewLeads() {
   const leads = defaultLeads;
@@ -28,11 +27,13 @@ export default function NewLeads() {
 }
 
 function leadItem(lead: ILeadItem) {
-  const timestamp = Moment(new Date(lead.timestamp)).format('MMM DD h:mma');
+  const timestamp = moment(new Date(lead.timestamp)).format('MMM DD h:mma');
+  const maxLength = 40;
+  const maxEllipLength = 37;
 
-  let message = lead.message.slice(0, 40);
-  if (lead.message.length > 37) {
-    message = message.slice(0, 37) + '...';
+  let message = lead.message.slice(0, maxLength);
+  if (lead.message.length > maxEllipLength) {
+    message = `${message.slice(0, maxEllipLength)}...`;
   }
 
   return (

@@ -19,6 +19,7 @@ interface IListItem {
 }
 
 export default function PopularPlaces() {
+
   // placeholder for future useListings hook or redux state
   const [listings] = useState(defaultListings);
 

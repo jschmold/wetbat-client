@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FormEvent, useState } from 'react';
 
 import {
   TextField,
@@ -11,7 +11,6 @@ import {
 
 import { useAllDestinations } from 'features/destinations/hooks';
 import { IDestination } from 'types/destination';
-import { FormEvent, useState } from 'react';
 import { defaultFormErrors, defaultFormValue } from './constants';
 import { IFormErrors, IQuoteForm } from './types';
 import { validateForm } from './validation';
@@ -64,9 +63,7 @@ export default function QuickQuote() {
   };
 
   const runValidation = () => setFormErrors(validateForm(form));
-
-  const hasErrors = () =>
-    Object.values(errors).filter((a) => a != null).length > 0;
+  const hasErrors = () => Object.values(errors).filter(a => a != null).length > 0;
 
   const destinations = useAllDestinations();
 
@@ -90,12 +87,12 @@ export default function QuickQuote() {
           <i className="icon material-icons">fullscreen</i>
         </div>
       </div>
-      <form className="content" noValidate onSubmit={(a) => submit(a)}>
+      <form className="content" noValidate onSubmit={a => submit(a)}>
         <FormControl variant="filled">
           <InputLabel shrink>From</InputLabel>
           <Select
             label="From"
-            onChange={(a) => setFrom(a.target.value as string)}
+            onChange={a => setFrom(a.target.value as string)}
             value={form.fromId}
           >
             <MenuItem value="">None</MenuItem>
@@ -110,7 +107,7 @@ export default function QuickQuote() {
           <InputLabel shrink>Destination</InputLabel>
           <Select
             value={form.destinationId}
-            onChange={(e) => setDestinationId(e.target.value as string)}
+            onChange={e => setDestinationId(e.target.value as string)}
           >
             <MenuItem value="">None</MenuItem>
             {destinations.map(destinationItem)}
@@ -125,7 +122,7 @@ export default function QuickQuote() {
           label="Depart Date"
           variant="filled"
           value={form.departureDate}
-          onChange={(e) => setDepartureDate(e.target.value)}
+          onChange={e => setDepartureDate(e.target.value)}
           InputLabelProps={{ shrink: true }}
           error={!!errors.departureDate}
           helperText={errors.departureDate}
@@ -138,7 +135,7 @@ export default function QuickQuote() {
           className="datepicker"
           InputLabelProps={{ shrink: true }}
           value={form.returnDate}
-          onChange={(e) => setReturnDate(e.target.value)}
+          onChange={e => setReturnDate(e.target.value)}
           error={!!errors.returnDate}
           helperText={errors.returnDate}
         />
@@ -148,7 +145,7 @@ export default function QuickQuote() {
           label="People"
           variant="filled"
           value={form.people}
-          onChange={(e) => setPeople(parseInt(e.target.value, 10))}
+          onChange={e => setPeople(parseInt(e.target.value, 10))}
           error={!!errors.people}
           helperText={errors.people}
         />
@@ -157,7 +154,7 @@ export default function QuickQuote() {
           <InputLabel>Transportation</InputLabel>
           <Select
             value={form.transportation}
-            onChange={(e) => setTransportation(e.target.value as string)}
+            onChange={e => setTransportation(e.target.value as string)}
           >
             <MenuItem value="">None</MenuItem>
             <MenuItem value="rental-car">Car Rental</MenuItem>
@@ -169,7 +166,7 @@ export default function QuickQuote() {
           variant="filled"
           label="Name"
           value={form.name}
-          onChange={(e) => setName(e.target.value)}
+          onChange={e => setName(e.target.value)}
           error={errors.name != null}
           helperText={errors.name}
         />

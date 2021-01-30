@@ -1,8 +1,9 @@
 import * as constants from './constants';
 import * as api from './api';
 
-import { actions } from './reducer';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+
+import { actions } from './reducer';
 import { ICreateQuote } from './types';
 
 export const loadQuotes = createAsyncThunk(

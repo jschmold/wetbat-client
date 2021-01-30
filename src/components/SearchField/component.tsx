@@ -22,7 +22,7 @@ export default function SearchField() {
           placeholder="Search"
           type="text"
           value={text}
-          onChange={(evt) => setText(evt.target.value)}
+          onChange={evt => setText(evt.target.value)}
           ref={inputRef}
         />
         {hasText() && (

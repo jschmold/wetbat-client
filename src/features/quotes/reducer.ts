@@ -6,27 +6,25 @@ export interface IQuoteState {
   entities: { [key: number]: IQuote };
 }
 
+function load(state: IQuoteState, action: PayloadAction<IQuote | IQuote[]>) {
+  const arr = Array.isArray(action.payload) ? action.payload : [action.payload];
+  const { entities } = state;
+
+  arr.forEach((quote) => {
+    if (!state.ids.includes(quote.id)) {
+      state.ids.push(quote.id);
+    }
+
+    entities[quote.id] = quote;
+  });
+
+  return state;
+}
+
 const quoteSlice = createSlice({
   name: 'quotes',
   initialState: { ids: [], entities: {} } as IQuoteState,
-  reducers: {
-    load: (state: IQuoteState, action: PayloadAction<IQuote | IQuote[]>) => {
-      const arr = Array.isArray(action.payload)
-        ? action.payload
-        : [action.payload];
-
-      for (const quote of arr) {
-        if (!state.ids.includes(quote.id)) {
-          state.ids.push(quote.id);
-        }
-
-        state.entities[quote.id] = quote;
-      }
-
-      return state;
-    },
-  },
+  reducers: { load },
 });
 
-export const actions = quoteSlice.actions;
-export const reducer = quoteSlice.reducer;
+export const { actions, reducer } = quoteSlice;

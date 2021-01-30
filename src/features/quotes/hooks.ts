@@ -4,7 +4,7 @@ import { IQuote } from 'types/quote';
 import { IQuoteState } from './reducer';
 
 export function useQuoteState() {
-  return useSelector<IAppState, IQuoteState>((a) => a.quotes);
+  return useSelector<IAppState, IQuoteState>(a => a.quotes);
 }
 
 export function useAllQuotes(): IQuote[] {

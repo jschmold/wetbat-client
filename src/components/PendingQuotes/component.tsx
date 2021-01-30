@@ -20,7 +20,7 @@ function mapListings(all: IQuote[]): IListItem[] {
 
   return all
     .sort((a, b) => b.id - a.id)
-    .map((q) => ({
+    .map(q => ({
       oid: q.oid,
       id: q.id,
       name: q.name,
