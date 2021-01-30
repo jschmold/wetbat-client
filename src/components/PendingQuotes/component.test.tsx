@@ -4,12 +4,12 @@ import configureMockStore from 'redux-mock-store';
 
 import { loremIpsum } from 'lorem-ipsum';
 import { render, RenderResult } from '@testing-library/react';
-import { IQuote } from '../../types/quote';
-import { IQuoteState } from '../../features/quotes/reducer';
+import { IQuote } from 'types/quote';
+import { IQuoteState } from 'features/quotes/reducer';
 import { Store } from 'redux';
 import { Provider } from 'react-redux';
-import { IDestinationState } from '../../features/destinations/reducer';
-import { IDestination } from '../../types/destination';
+import { IDestinationState } from 'features/destinations/reducer';
+import { IDestination } from 'types/destination';
 import { v4 as uuid } from 'uuid';
 
 function fakeQuote(id: number, destinationId: string): IQuote {

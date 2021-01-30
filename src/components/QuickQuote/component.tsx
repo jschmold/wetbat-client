@@ -9,14 +9,14 @@ import {
   FormHelperText,
 } from '@material-ui/core';
 
-import { useAllDestinations } from '../../features/destinations/hooks';
-import { IDestination } from '../../types/destination';
+import { useAllDestinations } from 'features/destinations/hooks';
+import { IDestination } from 'types/destination';
 import { FormEvent, useState } from 'react';
 import { defaultFormErrors, defaultFormValue } from './constants';
 import { IFormErrors, IQuoteForm } from './types';
 import { validateForm } from './validation';
-import { ICreateQuote } from '../../features/quotes/types';
-import { createQuote } from '../../features/quotes/thunks';
+import { ICreateQuote } from 'features/quotes/types';
+import { createQuote } from 'features/quotes/thunks';
 import { useDispatch } from 'react-redux';
 
 import './styles.scss';

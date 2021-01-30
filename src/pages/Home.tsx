@@ -1,16 +1,16 @@
 import React from 'react';
-import ActionBar from '../components/ActionBar';
-import SideBar from '../components/Sidebar';
+import ActionBar from 'components/ActionBar';
+import SideBar from 'components/Sidebar';
 
-import StatBanner from '../components/InfoBanner';
-import QuickQuote from '../components/QuickQuote';
-import PendingQuotes from '../components/PendingQuotes';
-import NewLeads from '../components/NewLeads';
-import PopularPlaces from '../components/PopularPlaces';
-import TeamChat from '../components/TeamChat';
-import Revenue from '../components/Revenue';
-import PotentialRevenue from '../components/PotentialRevenue';
-import CloseRatios from '../components/CloseRatios';
+import StatBanner from 'components/InfoBanner';
+import QuickQuote from 'components/QuickQuote';
+import PendingQuotes from 'components/PendingQuotes';
+import NewLeads from 'components/NewLeads';
+import PopularPlaces from 'components/PopularPlaces';
+import TeamChat from 'components/TeamChat';
+import Revenue from 'components/Revenue';
+import PotentialRevenue from 'components/PotentialRevenue';
+import CloseRatios from 'components/CloseRatios';
 
 import './Home.scss';
 

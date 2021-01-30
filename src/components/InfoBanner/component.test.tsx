@@ -5,8 +5,8 @@ import configureMockStore from 'redux-mock-store';
 import { Store } from 'redux';
 import { Provider } from 'react-redux';
 import { render, RenderResult } from '@testing-library/react';
-import { IQuoteState } from '../../features/quotes/reducer';
-import { IQuote } from '../../types/quote';
+import { IQuoteState } from 'features/quotes/reducer';
+import { IQuote } from 'types/quote';
 
 const mockStore = configureMockStore();
 

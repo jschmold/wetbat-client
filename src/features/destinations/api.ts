@@ -1,4 +1,4 @@
-import { useAPIClient } from '../http';
+import { useAPIClient } from 'features/http';
 
 export async function loadDestinations() {
   const client = useAPIClient();

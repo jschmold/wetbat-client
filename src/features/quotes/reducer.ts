@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { IQuote } from '../../types/quote';
+import { IQuote } from 'types/quote';
 
 export interface IQuoteState {
   ids: number[];

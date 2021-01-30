@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { IAppState } from '../../store';
+import { IAppState } from 'store';
 import { IDestinationState } from './reducer';
 
 export function useDestinationState() {

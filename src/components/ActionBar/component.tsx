@@ -3,8 +3,8 @@
  * the app via this component.
  */
 import React from 'react';
-import Avatar from '../Avatar';
-import SearchField from '../SearchField';
+import Avatar from 'components/Avatar';
+import SearchField from 'components/SearchField';
 
 import './styles.scss';
 

@@ -3,11 +3,11 @@ import ReduxThunk from 'redux-thunk';
 import {
   IDestinationState,
   reducer as destinations,
-} from './features/destinations/reducer';
+} from 'features/destinations/reducer';
 
 import { configureStore } from '@reduxjs/toolkit';
 import { combineReducers } from 'redux';
-import { IQuoteState, reducer as quotes } from './features/quotes/reducer';
+import { IQuoteState, reducer as quotes } from 'features/quotes/reducer';
 
 export interface IAppState {
   quotes: IQuoteState;

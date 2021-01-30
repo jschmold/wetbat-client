@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
-import { IAppState } from '../../store';
-import { IQuote } from '../../types/quote';
+import { IAppState } from 'store';
+import { IQuote } from 'types/quote';
 import { IQuoteState } from './reducer';
 
 export function useQuoteState() {

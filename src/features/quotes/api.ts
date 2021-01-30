@@ -1,5 +1,5 @@
-import { IQuote } from '../../types/quote';
-import { useAPIClient } from '../http';
+import { IQuote } from 'types/quote';
+import { useAPIClient } from 'features/http';
 import { ICreateQuote } from './types';
 
 export async function loadQuotes(): Promise<IQuote[]> {

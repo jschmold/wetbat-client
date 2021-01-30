@@ -1,7 +1,7 @@
 import React from 'react';
-import { useDestinationState } from '../../features/destinations/hooks';
-import { useAllQuotes } from '../../features/quotes/hooks';
-import { IQuote } from '../../types/quote';
+import { useDestinationState } from 'features/destinations/hooks';
+import { useAllQuotes } from 'features/quotes/hooks';
+import { IQuote } from 'types/quote';
 
 import './styles.scss';
 

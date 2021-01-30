@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { IDestination } from '../../types/destination';
+import { IDestination } from 'types/destination';
 
 export interface IDestinationState {
   ids: string[];

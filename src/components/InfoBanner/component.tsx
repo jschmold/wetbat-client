@@ -1,5 +1,5 @@
 import React from 'react';
-import { useAllQuotes } from '../../features/quotes/hooks';
+import { useAllQuotes } from 'features/quotes/hooks';
 
 import './styles.scss';
 
